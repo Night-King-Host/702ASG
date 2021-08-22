@@ -1,0 +1,549 @@
+<html manifest="NK702ASG.cache">
+    <style>
+          .bg {
+		        /* The image used */
+		        background-image: url("1.jpg");
+		        font-family: system-ui;
+		        /* Center and scale the image nicely */
+		        background-position: center;
+		        background-repeat: no-repeat;
+            background-size: cover;
+            color:white;
+            font-size:20px;
+            text-align:center;
+            }
+        .button {
+          background-color: white;  
+          border-radius: 5px;
+          border: 2px solid black;
+          color: #4863A0;
+          padding: .5em;
+          text-decoration: none;
+          display:inline-table;
+          font-family: system-ui;
+          font-size: 20px;
+          text-align: center;
+          width: 200px;
+          height: 50px; 
+        }
+        .button:focus,
+        .button:hover {
+          box-shadow: 0 5px 50px 0 white;
+          color: #4863A0;
+          border-radius: 10px;}
+    
+          .temp {
+          background-color: white;  
+          border-radius: 5px;
+          border: 2px solid black;
+          color: white;
+          padding: .5em;
+          text-decoration: none;
+          display:inline-table;
+          font-family: system-ui;
+          font-size: 20px;
+          text-align: center;
+          width: 50px;
+          height: 25px; 
+          
+            }
+    
+        .temp:focus,
+        .temp:hover {
+        box-shadow: 0 5px 50px 0 white;
+        color: white;
+        border-radius: 10px;}
+    
+        .fail{
+            float:right;
+            margin-right:2.25%;
+            margin-top: 11px;
+            font-weight:bold;
+            font-size:28px;
+            color: white;
+             }
+           .pass {
+           float:left;
+           margin-left:1.25%;
+           font-weight:bold;
+           margin-top: 11px;
+           font-size:28px;
+           color: white;
+           }
+    
+           .titlehead {
+              background-color: black;  
+              border-radius: 5px;
+              color: yellow;
+              padding: .5em;
+              text-decoration: none;
+              text-align: center;
+              margin-top: -10px;
+              margin-bottom: -10px;
+              font-family: system-ui;
+              font-size:30px;
+            }
+    
+            .titlehead:focus,
+            .titlehead:hover {
+              box-shadow: 0 5px 50px 0 white;
+              background-color: rgb(1, 1, 22);
+              color: yellow;
+            }
+            .pointer {cursor: pointer;}
+    
+    </style>
+<head>
+<title>Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)</title>
+<script>
+function DLProgress(e){Percent=(Math.round(e.loaded / e.total * 100));window.msgs.innerHTML="Installing Offline Cache: " + Percent + "%"};
+function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML="Cache Installed Successfully";localStorage.isNK702ASGcached=true;},1000);setTimeout(function(){window.msgs.innerHTML="Turn Off the Internet & Reopen to Run the Webkit!!";},3000);}window.applicationCache.addEventListener("progress",DLProgress,false);window.applicationCache.oncached=function(e){DisplayCacheProgress();};window.applicationCache.onupdateready=function(e){DisplayCacheProgress();};
+</script>
+<body class="bg" onload="go()">
+<h1 id=msgs class="titlehead">Night King 7.02 FW Full Auto Exploit 1.0 (Sleirsgoevy Base)</h1>
+<br>
+<div id=dlog></div>
+<button style=opacity:0 id="input1" onfocus="handle2()"></button>
+<button style=opacity:0 id="input2"></button>
+<button style=opacity:0 id="input3" onfocus="handle2()"></button>
+<select style=opacity:0 id="select1">
+<option value="value1">Value1</option>
+</select>
+<script src="utils.js"></script>
+<script src="int64.js"></script>
+<script src="ps4.js"></script>
+<script>
+function print(){}
+
+var scriptCode = '';
+
+function preloadScripts(lst){
+for(var i=0;i<lst.length;i++){var xhr=new XMLHttpRequest();xhr.open('GET',lst[i],false);xhr.send('');scriptCode+=xhr.responseText+'\n';}
+}
+
+function done(){
+    if(main_ret == 0 || main_ret == 179)
+    {
+        //alert("You're all set!");
+    }
+    else
+        alert("Jailbreak failed! Reboot your PS4 and try again.");
+}
+
+window.midExploit = function(){
+preloadScripts(['blob.js'], go);
+}
+
+window.postExploit = function(){
+dlog.remove();
+mymenu.style.display="block";
+    setTimeout(function()
+	{
+	eval.call(window, scriptCode);
+	done();
+	}, 100);
+};
+</script>
+<div id=mymenu style="text-align:center;display:none">
+    <a class="pass" style="color: green;text-shadow: 4px 4px 4px black;font-size:30px; font-weight: bold;">Pass = <span id=passCounter></span></a><a  class="fail" style="color: red;text-shadow: 4px 4px 4px black;font-size:30px; font-weight: bold;">Fail = <span id=failCounter></span> </a>
+    <div style="width:100%;font-size:20px;color:white">PS4 Firmware <span id="PS4fw"></span></div>
+    <br><div style=font-size:16px;text-align:center;color:white;>Set Fan Treshold The PS4 default temp is 79°C</div>
+    <a href="#" class="temp" onMouseOver="msgs.innerHTML='Fan Control Set Temp 50c'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_fancontrol50(); return false" style="font-size:15px;text-align:center;color:#5B90F6">50c</a>&nbsp;
+    <a href="#" class="temp" onMouseOver="msgs.innerHTML='Fan Control Set Temp 55c'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_fancontrol55(); return false" style="font-size:15px;text-align:center;color:#5B90F6">55c</a>&nbsp;
+    <a href="#" class="temp" onMouseOver="msgs.innerHTML='Fan Control Set Temp 60c'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_fancontrol60(); return false" style="font-size:15px;text-align:center;color:#ff7f7f">60c</a>&nbsp;
+    <a href="#" class="temp" onMouseOver="msgs.innerHTML='Fan Control Set Temp 65c'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_fancontrol65(); return false" style="font-size:15px;text-align:center;color:#ff4c4c">65c</a>&nbsp;
+    <a href="#" class="temp" onMouseOver="msgs.innerHTML='Fan Control Set Temp 70c'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_fancontrol70(); return false" style="font-size:15px;text-align:center;color:#ff4c4c">70c</a>&nbsp;
+    <br>
+    <div style=font-size:20px;text-align:center;color:yellow;>GOLDHEN / MIRA / HEN</div>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='Hen v2.1.3 - By SiSTRo'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_hen(); return false" style="font-size:20px;text-align:center;background-color: goldenrod;color:white">HEN V2.1.3</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='Hen v2.1.3b - By SiSTRo-Leeful Ported By Karo'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_henb(); return false" style="font-size:20px;text-align:center;background-color: goldenrod;color:white">HEN V2.1.3b</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='Mira2B + Spoof V9.99 - By Karo'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_mirab(); return false">Mira2B</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='GoldHen v1.0 - By SiSTRo'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_goldhen10(); return false" style="font-size:20px;text-align:center;background-color: goldenrod;color:white">GoldHen V1.0</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='GoldHen v1.1 - By SiSTRo'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_goldhen11(); return false" style="font-size:20px;text-align:center;background-color: goldenrod;color:white">GoldHen V1.1</button>
+    <br>
+    <div style=font-size:20px;text-align:center;color:yellow;>PAYLOADS</div>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='Orbis-ToolBox Alpha Build 1167 - By OSM'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_orbistoolbox(); return false" style="background-color: orangered;color:white">Orbis-ToolBox</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='WebRTE v1.0 - By PS4 Trainer'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_webrte(); return false" style="font-size:20px;text-align:center;background-color: blue;color:white">WebRTE</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='Tylermods PS4 Offline Host Trainer - By Kameleon'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_trainer(); return false" style="font-size:20px;text-align:center;background-color: green;color:white">PS4-Trainer</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='Web-Activator - By Sleirsgoevy'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_webactivator(); return false" style="background-color: white;color:#4863A0">Web-Activator</button>    
+    <button class="button pointer" onMouseOver="msgs.innerHTML='Binloader'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_binloader(); return false">Binloader</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='Disable-Updates v1.0 - By Al Azif'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_disableupdates(); return false">Disable-Updates</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='Enable-Updates v1.0 - By Al Azif'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_enableupdates(); return false">Enable-Updates</button>
+    <br>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='App-2-Usb - Original Version By Stooged / 7.02 Port By Al Azif'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_app2usb(); return false">App-2-Usb</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='Rifrenamer / 7.02 Port Al Azif'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_rifrenamer(); return false">Rifrenamer</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='Ftp v1.3 - Original Version By xVortex / 7.02 Port By Al Azif'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_ftp(); return false">Ftp</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='History-Blocker - v2.0 Original Version By Stooged / 7.02 Port By Al Azif'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_historyblocker(); return false">History-Blocker</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='Kernel-Dumper - v1.0 Original Version By Eversion / 7.02 Port By Al Azif'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_kerneldumper(); return false">Kernel-Dumper</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='Kernel Module Dumper - v1.0 Original Version By Eversion / 7.02 Port By Al Azif'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_kernelmdumper(); return false">Module-Dumper</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='Kernel Clock / 7.02 Port Al Azif'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_kernelclock(); return false">Kernel-Clock</button>
+    <br>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='Ps4Debug 7.02 - By CTN 1.5.4.4'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_ps4debug(); return false">Ps4Debug</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='Linux 1gb - By Sleirsgoevy'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_Linux1gb(); return false">Linux-1gb</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='Linux 3gb - By Sleirsgoevy'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_Linux3gb(); return false">Linux-3gb</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='DB-Backup v1.0 - By Leeful / 7.02 Port By Al Azif'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_backup(); return false">DB-Backup</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='DB-Restore v1.0 - By Leeful / 7.02 Port Al Azif'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_restore(); return false">DB-Restore</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='Dump Game Only v1.8 - Original Version By xVortex / 7.02 Port Al Azif'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_dumper(); return false">Game-Dumper</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='Enable Browser / 7.02 Port Al Azif'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_enablebrowser(); return false">Enable-Browser</button>
+    <br>
+    <div style=font-size:20px;text-align:center;color:yellow;>GTA V MODS</div>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='ArabicGuy GTA V v1.00 - Original Version By RF0oDxM0Dz'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'"; onclick="load_gtava1(); return false">ArabicGuy v1.00</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='ArabicGuy GTA V v1.27 - Original Version By RF0oDxM0Dz'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_gtava2(); return false">ArabicGuy v1.27</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='ArabicGuy GTA V v1.32 - Original Version By RF0oDxM0Dz'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_gtava3(); return false">ArabicGuy v1.32</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='NightCaller GTA V v1.00'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'"; onclick="load_gtanc1(); return false">NightCaller v1.00</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='NightCaller GTA V v1.27'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_gtanc2(); return false">NightCaller v1.27</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='NightCaller GTA V v1.32'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_gtanc3(); return false">NightCaller v1.32</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='Lamance GTA V v1.32 - By david1337hax'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_gtavl(); return false">Lamance v1.32</button>
+    <br>
+    <div style=font-size:20px;text-align:center;color:yellow;>RDR2 MODS</div>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='Menu for Red Dead Redemption 2 V1.13 by RF0oDxM0Dz (R1 + Square)'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'"; onclick="load_rdr2('113'); return false">RDR2 v1.13</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='Menu for Red Dead Redemption 2 V1.19 by RF0oDxM0Dz (R1 + Square)'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_rdr2('119'); return false">RDR2 v1.19</button>
+    <button class="button pointer" onMouseOver="msgs.innerHTML='Menu for Red Dead Redemption 2 V1.24 by RF0oDxM0Dz (R1 + Square)'"; onmouseout="msgs.innerHTML='Night King 7.02 FW Full Auto Exploit 1.0 (SG Base)'" onclick="load_rdr2('124'); return false">RDR2 v1.24</button>
+    <br>
+    <a style='font-size:20px;text-align:center;color:#FFD700;'>
+        Main Owner : <a style='font-size:20px;text-align:center;color:white;'>
+        SALT - Find Us In Telegram if you have any kind of issues!:&nbsp;<a href="http://t.me/Salt753194" style='font-size:20px;text-align:center;color:red;'>@Salt753194</a></h1>
+       <br><a style='font-size:20px;text-align:center;color:#FFD700;'>
+        Credits : <a style='font-size:20px;text-align:center;color:white;'>
+        KameleonKmE(Coder) <a href="https://twitter.com/KameleonRe" style='font-size:20px;text-align:center;color:red;'>Kameleon</h1><a style='font-size:20px;text-align:center;color:white;'>@Sleirgoevy for Webkit and Kex, @ChendoChap for Patch fixes, @Al-Azif for Patch Fixes, @SiSTRo for Hen and GoldHEN&nbsp;
+    <h1 style="text-align:center;font-size:20px;color:white">Based on PRB-Borg Exploit Style</h1>
+    </div>
+<script>
+UA = navigator.userAgent.substring(navigator.userAgent.indexOf("0.00 (") + 28, navigator.userAgent.indexOf(") Apple"));
+if (UA == "7.02"){PS4fw.innerHTML="v"+UA+" Detected"};if(UA != "7.02"){PS4fw.innerHTML="Spoofed To v"+UA};
+function getScript(source,callback){var gs=document.createElement('script');gs.src=source;gs.onload=callback;gs.async=false;document.body.appendChild(gs);}
+function loadScript2(){getScript("exp_loaderPL.js",function(){});}
+</script>
+<script>
+if (localStorage.passcount == null) localStorage.passcount=0;
+window.passCounter.innerHTML=localStorage.passcount;
+if (localStorage.failcount == null) localStorage.failcount=0;
+window.failCounter.innerHTML=localStorage.failcount;
+
+function load_exploit(){
+msgs.innerHTML='Loading Exploit and Payload Please Wait ...';
+if (PLfile == "pl_goldhen_1.0.bin"){
+  LoadedMSG="GoldHen V1.0 Loaded";
+}else if (PLfile == "pl_goldhen_1.1.bin"){
+  LoadedMSG="GoldHen V1.1 Loaded";
+}else if (PLfile == "pl_hen213.bin"){
+  LoadedMSG="Hen V2.1.3 Loaded";
+}else if (PLfile == "pl_hen213b.bin"){
+  LoadedMSG="Hen V2.1.3b Loaded";
+}else if (PLfile == "pl_mira2b.bin"){
+  LoadedMSG="Mira2b Loaded";
+}
+function getScript(source,callback){var gs=document.createElement('script');gs.src=source;gs.onload=callback;gs.async=false;document.body.appendChild(gs);}
+function loadScript(){getScript("exp_jailbreak.js",function(){setTimeout(jailbreak,1000);});}loadScript();
+}
+
+function load_goldhen10(){
+msgs.innerHTML='Loading GoldHen V1.0 ...';
+LoadedMSG="GoldHen V1.0 Loaded";
+PLfile = "pl_goldhen_1.0.bin";
+load_exploit();
+}
+
+function load_goldhen11(){
+msgs.innerHTML='Loading GoldHen V1.1 ...';
+LoadedMSG="GoldHen V1.1 Loaded";
+PLfile = "pl_goldhen_1.1.bin"
+load_exploit();
+}
+
+function load_hen(){
+msgs.innerHTML='Loading Hen V2.1.3 ...';
+LoadedMSG="Hen V2.1.3 Loaded";
+PLfile = "pl_hen213.bin"
+load_exploit();
+}
+
+function load_henb(){
+msgs.innerHTML='Loading HenB V2.1.3 ...';
+LoadedMSG="HenB V2.1.3 Loaded";
+PLfile = "pl_hen213b.bin"
+load_exploit();
+}
+
+function load_mirab(){
+msgs.innerHTML='Loading Mira2b ...';
+LoadedMSG="Mira2b Loaded";
+PLfile = "pl_mira2b.bin"
+load_exploit();
+}
+
+function load_orbistoolbox(){
+msgs.innerHTML='Loading Orbis-ToolBox ...';
+LoadedMSG="Orbis-ToolBox Loaded";
+PLfile = "pl_orbistoolbox.bin"
+loadScript2();
+}
+
+function load_binloader(){
+msgs.innerHTML='Loading Bin Loader ...';
+LoadedMSG="Send Payload To Port 9021";
+function loadScript(){getScript("exp_loaderBL.js",function(){});}
+loadScript();
+}
+
+function load_disableupdates(){
+msgs.innerHTML='Loading Disable-Updates ...';
+LoadedMSG="Disable-Updates Loaded";
+PLfile = "pl_disableupdates.bin";
+loadScript2();
+}
+
+function load_enableupdates(){
+msgs.innerHTML='Loading Enable-Updates ...';
+LoadedMSG="Enable-Updates Loaded";
+PLfile = "pl_enableupdates.bin";
+loadScript2();
+}
+
+function load_backup(){
+msgs.innerHTML='Loading DB-Backup ...';
+LoadedMSG="DB-Backup Loaded";
+PLfile = "pl_backup.bin";
+loadScript2();
+}
+
+function load_app2usb(){
+msgs.innerHTML='Loading App-To-Usb ...';
+LoadedMSG="App-To-Usb Loaded";
+PLfile = "pl_app2usb.bin";
+loadScript2();
+}
+
+function load_disableaslr(){
+msgs.innerHTML='Loading Disable-ASLR ...';
+LoadedMSG="Disable-ASLR Loaded";
+PLfile="pl_disableaslr.bin";
+loadScript2();
+}
+
+function load_dumper(){
+msgs.innerHTML='Loading App Dumper ...';
+LoadedMSG="App Dumper Loaded";
+PLfile = "pl_dumper.bin";
+loadScript2();
+}
+
+function load_rifrenamer(){
+msgs.innerHTML='Loading Rifrenamer ...';
+LoadedMSG="Rifrenamer Loaded";
+PLfile = "pl_rifrenamer.bin";
+loadScript2();
+}
+
+function load_enablebrowser(){
+msgs.innerHTML='Loading Enable-Browser ...';
+LoadedMSG="Enable-Browser Loaded";
+PLfile = "pl_enablebrowser.bin";
+loadScript2();
+}
+
+function load_ftp(){
+msgs.innerHTML='Loading Ftp ...';
+LoadedMSG="Ftp Loaded";
+PLfile = "pl_ftp.bin";
+loadScript2();
+}
+
+function load_gtava1(){
+msgs.innerHTML='Loading ArabicGuy 1.00 ...';
+LoadedMSG="ArabicGuy 1.00 Loaded";
+PLfile = "pl_gtava1.bin";
+loadScript2();
+}
+
+function load_gtava2(){
+msgs.innerHTML='Loading ArabicGuy 1.27 ...';
+LoadedMSG="ArabicGuy 1.27 Loaded";
+PLfile = "pl_gtava2.bin";
+loadScript2();
+}
+
+function load_gtava3(){
+msgs.innerHTML='Loading ArabicGuy 1.32 ...';
+LoadedMSG="ArabicGuy 1.32 Loaded";
+PLfile = "pl_gtava3.bin";
+loadScript2();
+}
+
+function load_gtavnc1(){
+msgs.innerHTML='Loading NightCaller 1.00 ...';
+LoadedMSG="NightCaller 1.00 Loaded";
+PLfile = "pl_gtavnc1.bin";
+loadScript2();
+}
+
+function load_gtavnc2(){
+msgs.innerHTML='Loading NightCaller 1.27 ...';
+LoadedMSG="NightCaller 1.27 Loaded";
+PLfile = "pl_gtavnc2.bin";
+loadScript2();
+}
+
+function load_gtavnc3(){
+msgs.innerHTML='Loading NightCaller 1.32 ...';
+LoadedMSG="NightCaller 1.32 Loaded";
+PLfile = "pl_gtavnc3.bin";
+loadScript2();
+}
+
+function load_gtavl(){
+msgs.innerHTML='Loading Lamance 1.32 ...';
+LoadedMSG="Lamance 1.32 Loaded";
+PLfile = "pl_gtavl.bin";
+loadScript2();
+}
+
+function load_rdr2(version){
+  if (version == "113"){
+msgs.innerHTML='Loading RDR2 1.13 ...';
+LoadedMSG="RDR2 1.13 Loaded";
+PLfile = "pl_rdr113.bin";
+  }else if (version == "119"){
+msgs.innerHTML='Loading RDR2 1.19 ...';
+LoadedMSG="RDR2 1.19 Loaded";
+PLfile = "pl_rdr119.bin"; 
+  }else if (version == "124"){
+msgs.innerHTML='Loading RDR2 1.24 ...';
+LoadedMSG="RDR2 1.24 Loaded";
+PLfile = "pl_rdr124.bin"; }
+loadScript2();
+}
+
+function load_gtavl(){
+msgs.innerHTML='Loading Lamance 1.32 ...';
+LoadedMSG="Lamance 1.32 Loaded";
+PLfile = "pl_gtavl.bin";
+loadScript2();
+}
+
+function load_gtavl(){
+msgs.innerHTML='Loading Lamance 1.32 ...';
+LoadedMSG="Lamance 1.32 Loaded";
+PLfile = "pl_gtavl.bin";
+loadScript2();
+}
+
+function load_historyblocker(){
+msgs.innerHTML='Loading History-Blocker ...';
+LoadedMSG="History-Blocker Loaded";
+PLfile = "pl_historyblocker.bin";
+loadScript2();
+}
+
+function load_kerneldumper(){
+msgs.innerHTML='Loading Kernel-Dumper ...';
+LoadedMSG="Kernel-Dumper Loaded";
+PLfile = "pl_kerneldumper.bin";
+loadScript2();
+}
+
+function load_kernelmdumper(){
+msgs.innerHTML='Loading Kernel Module Dumper ...';
+LoadedMSG="Kernel Module Dumper Loaded";
+PLfile = "pl_kernelmoduledumper.bin";
+loadScript2();
+}
+
+function load_Linux1gb(){
+msgs.innerHTML='Loading Linux 1gb ...';
+LoadedMSG="Linux 1gb Loaded";
+PLfile = "pl_Linux1gb.bin";
+loadScript2();
+}
+
+function load_Linux3gb(){
+msgs.innerHTML='Loading Linux 3gb ...';
+LoadedMSG="Linux 3gb Loaded";
+PLfile = "pl_Linux3gb.bin";
+loadScript2();
+}
+
+function load_ps4debug(){
+msgs.innerHTML='Loading Ps4-Debug ...';
+LoadedMSG="Ps4-Debug Loaded";
+PLfile = "pl_ps4debug.bin";
+loadScript2();
+}
+
+function load_restore(){
+msgs.innerHTML='Loading DB-Restore ...';
+LoadedMSG="DB-Restore Loaded";
+PLfile = "pl_restore.bin";
+loadScript2();
+}
+
+function load_todex(){
+msgs.innerHTML='Loading To-Dex ...';
+LoadedMSG="To-Dex Loaded";
+PLfile = "pl_todex.bin";
+loadScript2();
+}
+
+function load_webrte(){
+msgs.innerHTML='Loading WebRTE ...';
+LoadedMSG="WebRTE Loaded";
+PLfile = "pl_webrte.bin";
+loadScript2();
+}
+
+function load_trainer(){
+  var link = document.createElement('a');
+  document.body.appendChild(link);
+  link.href = 'http://night-king.rf.gd/index.html';
+  link.click();
+	}
+
+function Preloadwebact(){
+var script = document.createElement('script');script.src = "frontend.js";document.getElementsByTagName('head')[0].appendChild(script);
+}
+
+function load_webactivator(){
+msgs.innerHTML='Loading Web-Activator ...';
+LoadedMSG="Web-Activator Loaded";
+PLfile = "pl_webactivator.bin";
+loadScript2();
+}
+
+function load_fancontrol50(){
+msgs.innerHTML='Loading Fan Control 50c ...';
+LoadedMSG="Fan Control 50c Loaded";
+PLfile = "fan_control/pl_fancontrol50.bin";
+loadScript2();
+}
+
+function load_fancontrol55(){
+msgs.innerHTML='Loading Fan Control 55c ...';
+LoadedMSG="Fan Control 55c Loaded";
+PLfile = "fan_control/pl_fancontrol55.bin";
+loadScript2();
+}
+
+function load_fancontrol60(){
+msgs.innerHTML='Loading Fan Control 60c ...';
+LoadedMSG="Fan Control 60c Loaded";
+PLfile = "fan_control/pl_fancontrol60.bin";
+loadScript2();
+}
+
+function load_fancontrol65(){
+msgs.innerHTML='Loading Fan Control 65c ...';
+LoadedMSG="Fan Control 65c Loaded";
+PLfile = "fan_control/pl_fancontrol65.bin";
+loadScript2();
+}
+
+function load_fancontrol70(){
+msgs.innerHTML='Loading Fan Control 70c ...';
+LoadedMSG="Fan Control 70c Loaded";
+PLfile = "fan_control/pl_fancontrol70.bin";
+loadScript2();
+}
+
+</script>
+</body>
+</html>
